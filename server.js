@@ -1,9 +1,9 @@
 var express = require("express")
 var app = express();
 
-app.use(express.static("public"))
+app.use("/timestamp", express.static("public"))
 
-app.get("/:date", function(req, res) {
+app.get("/timestamp/:date", function(req, res) {
   var date = req.params.date;
   if (date.match(/^[0-9]+$/) !== null) {
     var resDate = new Date(Number(date)*1000);
